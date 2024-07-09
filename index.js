@@ -17,8 +17,8 @@ app.get('/',function(req,res){
 })
 })
 
-app.get('/create',function(req,res){
-    fs.writeFile(`./files/${req.body.title.split(" ").join('')}.txt`, req.body.detail, function(err){
+app.post('/create',function(req,res){
+    fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.detail, function(err){
         res.redirect('/');
     })
 
