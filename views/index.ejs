@@ -18,9 +18,12 @@
         <% if(files.length > 0){ %>
             <% files.forEach(function(val){ %>
                     <div class=" w-72 px-3 py-4 rounded-md bg-zinc-800">
-                        <h1 class=" text-white text-3xl"> <%=val%></h1>
-                        <a href="/files/<%= val%>" class=" text-blue-900 mt-5 inline-block pr-16">read more</a>
-                        <a href="/update/<%= val%>" class="text-blue-900 mt-5 pl-16">Update</a>
+                        <div class=" flex justify-between">
+                            <h1 class=" text-white text-3xl"> <%=val%></h1>
+                            <a href="/delete/<%= val%>" class=" text-red-500 text-3xl" >*</a>
+                        </div>
+                        <a href="/files/<%= val%>" class=" text-blue-500 mt-5 inline-block pr-16">read more</a>
+                        <a href="/update/<%= val%>" class="text-blue-500 mt-5 pl-16">Update</a>
                     </div>
             <% }) %>
         <% }else{ %>

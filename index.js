@@ -25,6 +25,13 @@ app.get('/update/:filename',function(req,res){
     res.render("update",{filename:req.params.filename});
 })
 
+app.get('/delete/:filename',function(req,res){
+    fs.rm(`./files/${req.params.filename}`,function(err){
+        if (err) res.send(err);
+        res.redirect('/');
+    })
+})
+
 
 app.post('/create',function(req,res){
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.detail, function(err){
