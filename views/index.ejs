@@ -8,25 +8,26 @@
 </head>
 <body>
     <div class=" main w-full min-h-screen bg-zinc-900 ">
-        <form action="/create" method="post" class=" flex gap-5  item-center justify-center py-5 text-white">
+        <form action="/create" method="post" class=" flex gap-5 item-center justify-center py-5 text-white">
             <input type="text" class=" p-2  rounded-md outline-none  bg-zinc-600" placeholder="Title " name="title">
             <textarea name="detail" id="message" class=" rounded-md outline-none bg-zinc-600 resize-none w-52" placeholder=" description"></textarea>
             <button class=" px-5 py-2 bg-blue-700 rounded-xl w-40">Create task</button>
         </form>
+        <div class=" p-10 flex flex-wrap gap-5 w-full " >
 
         <% if(files.length > 0){ %>
             <% files.forEach(function(val){ %>
-                <div class=" p-10 flex flex-wrap gap-5" >
                     <div class=" w-72 px-3 py-4 rounded-md bg-zinc-800">
-                        <h1 class=" text-white text-3xl"> task heading</h1>
-                        <a href="" class=" text-blue-900 mt-5">read more</a>
+                        <h1 class=" text-white text-3xl"> <%=val%></h1>
+                        <a href="/files/<%= val%>" class=" text-blue-900 mt-5 inline-block pr-16">read more</a>
+                        <a href="/update <%= val%>" class="text-blue-900 mt-5 pl-16">Update</a>
                     </div>
-                </div>
             <% }) %>
         <% }else{ %>
-            <h1 class=" text-red-700 text-3xl font-bold"> NO TASK YET</h1>
+            <h1 class=" text-red-700 text-3xl font-bold "> NO TASK YET</h1>
         <% } %>
        
+    </div>
 
     </div>
 </body>
