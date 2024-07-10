@@ -22,7 +22,7 @@ app.get('/files/:filename',function(req,res){
     })
 })
 app.get('/update/:filename',function(req,res){
-    
+    res.render("update",{filename:req.params.filename});
 })
 
 
@@ -32,5 +32,12 @@ app.post('/create',function(req,res){
     })
 
     })
+
+app.post('/update',function(req,res){
+    fs.rename(`./files/${req.body.old_value}`,`./files/${req.body.new_value}`,function(err){
+        if (err) res.send(err);
+        res.redirect('/');
+    })
+})
 
 app.listen(3000)
